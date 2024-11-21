@@ -1,0 +1,18 @@
+
+                <%- include('./partials/header') %>
+                <main>
+                    <h2>Workout List</h2>
+                    <ul>
+                        <% workouts.forEach(workout => { %>
+                            <li>
+                                <strong><%= workout.name %></strong> - <%= workout.duration %> mins - <%= workout.type %>
+                                <a href="/workouts/edit/<%= workout._id %>">Edit</a>
+                                <form action="/workouts/delete/<%= workout._id %>" method="POST" style="display:inline;">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </main>
+                <%- include('./partials/footer') %>
+            
