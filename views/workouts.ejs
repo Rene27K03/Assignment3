@@ -7,6 +7,7 @@
     <title>Workout List</title>
 </head>
 <body>
+    <%- include('partials/header') %>  <!-- Include Header -->
     <h1>Workout List</h1>
     <form method="POST" action="/workouts">
         <input type="text" name="name" placeholder="Workout Name" required>
@@ -24,5 +25,6 @@
             </li>
         <% }) %>
     </ul>
+    <%- include('partials/footer') %>  <!-- Include Footer -->
 </body>
 </html>
