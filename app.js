@@ -42,7 +42,7 @@ const workoutSchema = new mongoose.Schema({
 });
 
 // Create a model for the Workout schema
-const Workout = mongoose.models.Workout || mongoose.model('Workout', workoutSchema);
+const Workout = mongoose.model('Workout', workoutSchema);
 
 // Routes
 // Home route to render the index page
@@ -50,9 +50,31 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-// Import routes for workouts
-const workoutsRouter = require('./routes/workouts'); // New line added to import workouts router
-app.use('/workouts', workoutsRouter); // New line added to use the workouts router
+// Route to display the list of workouts
+app.get('/workouts', async (req, res) => {
+    // Fetch all workouts from the database
+    const workouts = await Workout.find();
+    // Render the workouts page and pass the workouts data
+    res.render('workouts', { workouts });
+});
+
+// Route to handle adding a new workout
+app.post('/workouts', async (req, res) => {
+    const { name, sets, reps } = req.body;
+    // Create a new workout in the database
+    await Workout.create({ name, sets, reps });
+    // Redirect to the workouts page
+    res.redirect('/workouts');
+});
+
+// Route to handle deleting a workout
+app.post('/workouts/delete/:id', async (req, res) => {
+    const { id } = req.params;
+    // Find and delete the workout by its ID
+    await Workout.findByIdAndDelete(id);
+    // Redirect to the workouts page
+    res.redirect('/workouts');
+});
 
 // Start the server and listen on the defined port
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
