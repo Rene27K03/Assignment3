@@ -2,7 +2,7 @@
 {
   "name": "workout-tracker",
   "version": "1.0.0",
-  "description": "A simple workout tracker with CRUD functionality",
+  "description": "A workout tracker with CRUD functionality",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
