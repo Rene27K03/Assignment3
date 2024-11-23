@@ -42,7 +42,7 @@ const workoutSchema = new mongoose.Schema({
 });
 
 // Create a model for the Workout schema
-const Workout = mongoose.model('Workout', workoutSchema);
+const Workout = mongoose.models.Workout || mongoose.model('Workout', workoutSchema);
 
 // Routes
 // Home route to render the index page
