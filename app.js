@@ -8,6 +8,8 @@ const path = require('path');
 
 // Import the workout routes
 const workoutRoutes = require('./routes/workoutRoutes');
+const Workout = require('./models/workout');
+
 
 // Initialize Express app
 const app = express();
