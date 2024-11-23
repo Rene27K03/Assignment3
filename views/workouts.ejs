@@ -1,56 +1,37 @@
 <!DOCTYPE html>
-<!-- Defines the document as HTML5 and sets the language to English -->
 <html lang="en">
 <head>
-    <!-- Sets the character encoding to UTF-8 -->
     <meta charset="UTF-8">
-    <!-- Makes the page responsive for all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Sets the title of the web page -->
     <title>Workout List</title>
 </head>
 <body>
-    <!-- Includes the header file -->
-    <%- include('partials/header') %>  
+    <%- include('partials/header') %>  <!-- Include Header -->
 
-    <!-- Displays the main heading -->
     <h1>Workout List</h1>
-
-    <!-- Form for adding a new workout -->
     <form method="POST" action="/workouts">
-        <!-- Input field for workout name -->
         <input type="text" name="name" placeholder="Workout Name" required>
-        <!-- Input field for number of sets -->
         <input type="number" name="sets" placeholder="Sets" required>
-        <!-- Input field for number of reps -->
         <input type="number" name="reps" placeholder="Reps" required>
-        <!-- Button to submit the form -->
         <button type="submit">Add Workout</button>
     </form>
 
-    <!-- List to display workouts -->
     <ul>
-        <!-- Loops through each workout -->
         <% workouts.forEach(workout => { %>
-            <!-- Displays a single workout -->
             <li>
-                <!-- Shows workout name, sets, and reps -->
                 <%= workout.name %> - <%= workout.sets %> sets of <%= workout.reps %> reps
-                <!-- Form to delete a workout -->
+                <!-- Delete Form with Confirmation -->
                 <form method="POST" action="/workouts/delete/<%= workout._id %>" style="display:inline;" onsubmit="return confirmDelete()">
-                    <!-- Button to delete the workout -->
                     <button type="submit">Delete</button>
                 </form>
             </li>
         <% }) %>
     </ul>
 
-    <!-- Includes the footer file -->
-    <%- include('partials/footer') %>  
+    <%- include('partials/footer') %>  <!-- Include Footer -->
 
-    <!-- JavaScript for a confirmation dialog -->
+    <!-- JavaScript function for confirmation -->
     <script>
-        <!-- Asks for confirmation before deleting a workout -->
         function confirmDelete() {
             return confirm("Click ok if you want to delete this workout entry?");
         }

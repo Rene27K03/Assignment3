@@ -1,37 +1,31 @@
 /* styles.css */
-
-/* Styles for the header section */
 header {
-    background-color: #333; /* Sets a dark background color */
-    color: white; /* Sets the text color to white */
-    padding: 10px 0; /* Adds vertical padding */
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
 }
 
-/* Styles for the navigation menu in the header */
 header nav ul {
-    list-style-type: none; /* Removes bullet points from the list */
-    text-align: center; /* Centers the navigation items */
+    list-style-type: none;
+    text-align: center;
 }
 
-/* Styles for each list item in the navigation menu */
 header nav ul li {
-    display: inline; /* Displays list items side by side */
-    margin: 0 15px; /* Adds horizontal spacing between items */
+    display: inline;
+    margin: 0 15px;
 }
 
-/* Styles for the links in the navigation menu */
 header nav ul li a {
-    color: white; /* Sets the text color to white */
-    text-decoration: none; /* Removes the underline from links */
+    color: white;
+    text-decoration: none;
 }
 
-/* Styles for the footer section */
 footer {
-    background-color: #333; /* Sets a dark background color */
-    color: white; /* Sets the text color to white */
-    text-align: center; /* Centers the text */
-    padding: 10px 0; /* Adds vertical padding */
-    position: fixed; /* Fixes the footer to the bottom of the screen */
-    width: 100%; /* Ensures the footer spans the full width of the page */
-    bottom: 0; /* Positions the footer at the very bottom */
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
